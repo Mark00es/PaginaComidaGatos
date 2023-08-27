@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comida Miau</title>
+  <!-- Enlaces a Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="icon" href="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/42033/grinning-cat-emoji-clipart-md.png">
+  <style>  
+    .static-container {      
+      position: fixed;
+      top: 50px;
+      right: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .static-container a {
+      display: block;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header style="background-color: #f9c0d9;  width: 100%; z-index: 1000;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #0084ff9c;">
+        <a class="navbar-brand" href="index.html">
+            <img src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/42033/grinning-cat-emoji-clipart-md.png" alt="Logo" class="mr-2" style="height: 50px;">
+            Comida Miau
+        </a>
+        <form class="form-inline my-2 my-lg-0 mx-auto">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar" id="searchInput">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="filtrarTarjetas()">Buscar</button>
+        </form>
+        <div class="ml-auto">
+          <span class="navbar-text mr-2">
+              <a href="carrito.html">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span id="cartCount">0</span>
+              </a>
+          </span>
+      </div>
+    </nav>
+</header>
+  <div class="container mt-4" style="margin-top: 130px;">
+    <div class="row">
+      <aside class="col-md-3">
+        <h4>Filtrar por:</h4>
+        <div class="mb-3">
+          <h5>Tamaño de raza</h5>
+          <select class="form-control" id="sizeFilter" onchange="filtrarTarjetas()">
+            <option value="all">Mostrar todo</option>
+            <option value="mini">Mini</option>
+            <option value="pequeña">Pequeña</option>
+            <option value="mediano">Mediano</option>
+            <option value="grande">Grande</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <h5>Marca</h5>
+          <select class="form-control" id="brandFilter" onchange="filtrarTarjetas()">
+            <option value="all">Mostrar todo</option>
+            <option value="CanCat">CanCat</option>
+            <option value="CatPro">CatPro</option>
+            <option value="CatZone">CatZone</option>
+            <option value="FatCat">FatCat</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <h5>Tipo de Dietas</h5>
+          <select class="form-control" id="dietFilter" onchange="filtrarTarjetas()">
+            <option value="all">Mostrar todo</option>
+            <option value="Renal">Renal</option>
+            <option value="Gástrica">Gástrica</option>
+            <option value="Obesidad">Obesidad</option>
+            <option value="Diabetes">Diabetes</option>
+          </select>
+        </div>
+        <div class="static-container" id="staticContainer">
+          <div class="mb-3">
+            <a href="venta-de-gatos.html">
+              <img src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/42033/grinning-cat-emoji-clipart-md.png" alt="Venta de Gatos" class="img-fluid" width="150px" height="150px">
+            </a>
+          </div>
+          <div class="mb-3">
+            <a href="ropa-para-gatos.html">
+              <img src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/42033/grinning-cat-emoji-clipart-md.png" alt="Venta de Gatos" class="img-fluid" width="150px" height="150px">
+            </a>
+          </div>
+          <div class="mb-3">
+            <a href="juguetes-para-gatos.html">
+              <img src="ruta-de-la-imagen-juguetes-gatos.jpg" alt="Juguetes para Gatos" class="img-fluid">
+            </a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="col-md-9">
+        <div class="row" id="cardContainer">
+          <div class="col-md-4 mb-4" data-brand="CanCat" data-diet="Renal" data-size="grande">
+            <div class="card mini">
+              <img src="./ComidaGatos/ComidaGatos/Agility.jpg" class="card-img-top" alt="Comida 1">
+              <div class="card-body">
+                <h5 class="card-title">Agility</h5>
+                <p class="card-text">Descripción corta de la comida 1.</p>
+                <p class="card-text">Precio: $10.00</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-brand="CatPro" data-diet="Obesidad" data-size="mini">
+            <div class="card mini">
+              <img src="./ComidaGatos/ComidaGatos/Bravery.jpg" class="card-img-top" alt="Comida 1">
+              <div class="card-body">
+                <h5 class="card-title">Bravery</h5>
+                <p class="card-text">Descripción corta de la comida 1.</p>
+                <p class="card-text">Precio: $10.00</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-brand="CanCat" data-diet="Diabetes" data-size="mediano">
+            <div class="card pequeña">
+              <img src="./ComidaGatos/ComidaGatos/Chunky.jpg" class="card-img-top" alt="Comida 1">
+              <div class="card-body">
+                <h5 class="card-title">Chunky</h5>
+                <p class="card-text">Descripción corta de la comida 1.</p>
+                <p class="card-text">Precio: $10.00</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-brand="CanCat" data-diet="Renal" data-size="pequeña">
+            <div class="card pequeña">
+              <img src="./ComidaGatos/ComidaGatos/equilibrio.jpg" class="card-img-top" alt="Comida 1">
+              <div class="card-body">
+                <h5 class="card-title">Equilibrio</h5>
+                <p class="card-text">Descripción corta de la comida 1.</p>
+                <p class="card-text">Precio: $10.00</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-brand="CanCat" data-diet="Gástrica" data-size="mediano">
+            <div class="card pequeña">
+              <img src="./ComidaGatos/ComidaGatos/Fancy.jpg" class="card-img-top" alt="Comida 1">
+              <div class="card-body">
+                <h5 class="card-title">Fancy</h5>
+                <p class="card-text">Descripción corta de la comida 1.</p>
+                <p class="card-text">Precio: $10.00</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-brand="FatCat" data-diet="Renal" data-size="grande">
+            <div class="card pequeña">
+              <img src="./ComidaGatos/ComidaGatos/Gati.jpg" class="card-img-top" alt="Comida 1">
+              <div class="card-body">
+                <h5 class="card-title">Gati</h5>
+                <p class="card-text">Descripción corta de la comida 1.</p>
+                <p class="card-text">Precio: $10.00</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-brand="CatZone" data-diet="Gástrica" data-size="grande">
+            <div class="card pequeña">
+              <img src="./ComidaGatos/ComidaGatos/Monello.jpg" class="card-img-top" alt="Comida 1">
+              <div class="card-body">
+                <h5 class="card-title">Monelo</h5>
+                <p class="card-text">Descripción corta de la comida 1.</p>
+                <p class="card-text">Precio: $10.00</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-brand="CatPro" data-diet="Renal" data-size="pequeña">
+            <div class="card pequeña">
+              <img src="./ComidaGatos/ComidaGatos/MrCat.jpg" class="card-img-top" alt="Comida 1">
+              <div class="card-body">
+                <h5 class="card-title">MrCat</h5>
+                <p class="card-text">Descripción corta de la comida 1.</p>
+                <p class="card-text">Precio: $10.00</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-brand="CatZone" data-diet="Diabetes" data-size="mini">
+            <div class="card pequeña">
+              <img src="./ComidaGatos/ComidaGatos/proplan.jpg" class="card-img-top" alt="Comida 1">
+              <div class="card-body">
+                <h5 class="card-title">Proplan</h5>
+                <p class="card-text">Descripción corta de la comida 1.</p>
+                <p class="card-text">Precio: $10.00</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-brand="CatPro" data-diet="Obesidad" data-size="mediano">
+            <div class="card pequeña">
+              <img src="./ComidaGatos/ComidaGatos/Ricocat.jpg" class="card-img-top" alt="Comida 1">
+              <div class="card-body">
+                <h5 class="card-title">Ricocat</h5>
+                <p class="card-text">Descripción corta de la comida 1.</p>
+                <p class="card-text">Precio: $10.00</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4" data-brand="FatCat" data-diet="Renal" data-size="grande">
+            <div class="card pequeña">
+              <img src="./ComidaGatos/ComidaGatos/Whiskas.jpg" class="card-img-top" alt="Comida 1">
+              <div class="card-body">
+                <h5 class="card-title">Whiskas</h5>
+                <p class="card-text">Descripción corta de la comida 1.</p>
+                <p class="card-text">Precio: $10.00</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito()">Agregar al carrito</button>
+              </div>
+            </div>
+          </div>          
+          <!-- Repite este bloque para más productos -->
+        </div>
+
+        <!-- Agregar una paginación -->
+        <ul class="pagination justify-content-center">
+          <!-- ... (pagination items) ... -->
+        </ul>
+      </main>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <!-- ... (contenido del pie de página) ... -->
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      Contacto: Teléfono - Correo Electrónico
+      <p>&copy; 2023 Comida Miau. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Enlaces a Bootstrap JS y jQuery al final del body -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    let cartCount = Number(localStorage.getItem("cartCount")) || 0;
+
+    function actualizarCarrito() {
+        document.getElementById("cartCount").textContent = cartCount;
+        localStorage.setItem("cartCount", cartCount);
+    }
+
+    function agregarAlCarrito() {
+        cartCount++;
+        actualizarCarrito();
+    }
+
+    actualizarCarrito();
+    function filtrarTarjetas() {
+      var input, sizeFilter, brandFilter, dietFilter, filter, cards, cardContainer, card, title, cardSize, cardBrand, cardDiet, size, brand, diet, i;
+      input = document.getElementById("searchInput");
+      sizeFilter = document.getElementById("sizeFilter");
+      brandFilter = document.getElementById("brandFilter");
+      dietFilter = document.getElementById("dietFilter");
+      filter = input.value.toUpperCase();
+      size = sizeFilter.value;
+      brand = brandFilter.value;
+      diet = dietFilter.value;
+      cardContainer = document.getElementById("cardContainer");
+      cards = cardContainer.getElementsByClassName("col-md-4");
+
+      for (i = 0; i < cards.length; i++) {
+        card = cards[i];
+        title = card.querySelector(".card-title");
+        cardSize = card.getAttribute("data-size");
+        cardBrand = card.getAttribute("data-brand");
+        cardDiet = card.getAttribute("data-diet");
+        if (
+          (title.innerText.toUpperCase().indexOf(filter) > -1) &&
+          (size === "all" || size === cardSize) &&
+          (brand === "all" || brand === cardBrand) &&
+          (diet === "all" || diet === cardDiet)
+        ) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      }
+    }
+
+    document.getElementById("searchInput").addEventListener("keyup", filtrarTarjetas);
+    document.getElementById("sizeFilter").addEventListener("change", filtrarTarjetas);
+    document.getElementById("brandFilter").addEventListener("change", filtrarTarjetas);
+    document.getElementById("dietFilter").addEventListener("change", filtrarTarjetas);
+  </script>
+</body>
+</html>

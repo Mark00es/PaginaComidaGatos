@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compra</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/42033/grinning-cat-emoji-clipart-md.png">
+</head>
+<body>
+    <header style="background-color: #f9c0d9;">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #f9c0d9;">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/42033/grinning-cat-emoji-clipart-md.png" alt="Logo" class="mr-2" style="height: 50px;">
+                Comida Miau
+            </a>
+            <div class="ml-auto">
+                <span class="navbar-text mr-2">
+                    <a href="carrito.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cartCount">0</span>
+                    </a>
+                </span>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-4">
+        <h1>Carrito de Compra</h1>
+        <div class="alert alert-info" style="background-color: #f9c0d9;">
+            <p>Productos en el carrito: <span id="cartCount">0</span></p>
+            <p>Total de precios: <span id="totalPrecio">$0.00</span></p>
+        </div>
+        <h2>Información de Compra</h2>
+        <form>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre">
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección de Envío:</label>
+                <input type="text" class="form-control" id="direccion" placeholder="Ingresa tu dirección">
+            </div>
+            <div class="form-group">
+                <label for="tarjeta">Número de Tarjeta:</label>
+                <input type="text" class="form-control" id="tarjeta" placeholder="Ingresa el número de tu tarjeta">
+            </div>
+            <button type="submit" class="btn btn-primary">Completar Compra</button>
+        </form>
+    </div>
+
+    <footer>
+        <!-- ... (pie de página) ... -->
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Coloca aquí el JavaScript necesario
+    </script>
+</body>
+</html>
